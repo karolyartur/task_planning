@@ -1,0 +1,9 @@
+# Define the goal
+string object_name  # Name of the object to pick.
+geometry_msgs/PoseStamped object_target_pose  # The target pose that the object will be placed at
+---
+# Define the result
+bool success
+string task_state
+---
+# Define a feedback message

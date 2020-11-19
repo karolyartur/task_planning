@@ -1,0 +1,19 @@
+# Define the goal
+byte GET_STATUS=0
+byte CLEAR=1
+byte SET_NAME=2
+byte PLAN=3
+
+# Data passed as a string (in case of operation == SET_NAME this will be the new name of the task
+# In case of operation == PLAN this has to be an integer convertible string specifying the max number of
+# solutions for the planning of the task
+string data
+
+byte operation
+---
+# Define the result
+bool success
+string task_state
+moveit_task_constructor_msgs/Solution solution
+---
+# Define a feedback message

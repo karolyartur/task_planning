@@ -1,0 +1,7 @@
+arm_group_name: "panda_arm"
+eef_name: "hand"
+hand_group_name: "hand"
+hand_frame: "panda_link8"
+support_surfaces: ["table"]
+
+grasp_frame_transform: [0, 0, 0.1, 1.571, 0.785, 1.571]
