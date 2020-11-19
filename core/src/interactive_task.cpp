@@ -226,7 +226,14 @@ class Interactive_Task{
 					control_task_result.success = true;
 				} else if (goal->operation == goal->GET_STATUS){
 					control_task_result.success = true;
-				} else if (goal->operation == goal->PLAN){
+				}
+				
+				std::stringstream ss;
+				task_->printState(ss);
+				std::string task_state = parse_task_state_string_stream(ss);
+				control_task_result.task_state = task_state;
+				
+				if (goal->operation == goal->PLAN){
 					try{
 						success = task_->plan(std::stoi(goal->data));
 						control_task_result.success = success;
@@ -252,11 +259,6 @@ class Interactive_Task{
 						control_task_server.setAborted(control_task_result, "Unexpected error happened during the planning of the task");
 					}
 				}
-
-				std::stringstream ss;
-				task_->printState(ss);
-				std::string task_state = parse_task_state_string_stream(ss);
-				control_task_result.task_state = task_state;
 
 				control_task_server.setSucceeded(control_task_result);
 			}
