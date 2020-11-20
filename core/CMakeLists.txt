@@ -40,3 +40,6 @@ include_directories(
 )
 
 add_subdirectory(src)
+
+catkin_install_python(PROGRAMS scripts/add_pick_action_client.py scripts/plan_action_client.py
+                      DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
